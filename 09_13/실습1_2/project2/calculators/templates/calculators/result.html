@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>계산결과</h1>
+    <p>{{message}} + {{message2}} = {{message|add:message2}}</p>
+    <p>{{message}} * {{message2}} = {{mul}}</p>
+    <p>{{message}} - {{message2}} = {{minus}}</p>
+    {% if message2 == 0 %}
+        <p>계산할 수 없습니다</p>
+    {% else %}
+        <p>{{ message }} / {{ message2 }} = {{ sksnrl }}</p>
+    {% endif %}
+</body>
+</html>
