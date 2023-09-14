@@ -1,0 +1,10 @@
+{% extends "menu/base.html" %}
+
+{% block content %}
+
+{% for f in food %}
+    <p>{{ f }}</p>
+{% endfor %}
+{% include "./_order.html" %}
+{% endblock content %}
+

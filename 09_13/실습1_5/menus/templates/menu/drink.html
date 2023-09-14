@@ -1,0 +1,8 @@
+{% extends "menu/base.html" %}
+
+{% block content %}
+{% for d in drink %}
+    <p>{{ d|capfirst }}</p>
+{% endfor %}
+{% include "./_order.html" %}
+{% endblock content %}
