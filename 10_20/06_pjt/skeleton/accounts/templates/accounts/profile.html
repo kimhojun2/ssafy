@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div>
+  <h1 class="mab-4">{{ person.username }}님의 프로필 페이지</h1>
+  <br>
+  {% if request.user != person %}
+  <div>
+    <form action="{% url "accounts:follow" person.pk %}" method="POST">
+      {% csrf_token %}
+      {% if request.user in person.followers.all %}
+        <input type="submit" value='UNFOLLOW'>
+      {% else %}
+        <input type="submit" value='FOLLOW'>
+      {% endif %}
+    </form>
+  </div>
+  {% endif %}
+  <div>
+    팔로잉 : {{ person.followings.all|length }} / 팔로워 : {{ person.followers.all|length }}
+  </div>
+  <p>회원번호 : {{ person.pk }}</p>
+  <p>유저이름 : {{ person.username }}</p>
+  <p>가입날짜 : {{ person.date_joined }}</p>
+  <hr>
+  <h2>유저가 쓴 글</h2>
+  {% for board in boards %}
+    <p>글번호:{{ board.id }}</p>
+    <a href="{% url "boards:detail" board.id %}">글제목:{{ board.title }}</a>
+    <br>
+    <br>
+  {% endfor %}
+  <hr>
+  <h2>유저가 쓴 댓글</h2>
+  {{comments.board}}
+  {% if comments %}
+    {% for comment in comments %}
+      <p>{{ comment.content }}</p>
+    {% endfor %}
+  {% else %}
+    <p>작성된 글이 없습니다.</p>
+  {% endif %}
+  <hr>
+  <h2>팔로워</h2>
+  {% if person.followers.all|length == 0 %}
+    <p>팔로워 한 사람이 없습니다.</p>
+  {% else %}
+    {% for f in person.followers.all %}
+      <p>{{ f }}</p>
+    {% endfor %}
+  {% endif %}
+</div>
+{% endblock content %}
