@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% comment %} <div>
+        {% for financial_product in financial_products %}
+            {{ financial_product }}
+        {% endfor %}
+    </div> {% endcomment %}
+
+    <div>
+        {% for financial_product, age in filtered_data %}
+            {{ financial_product }} - Age: {{ age }}
+        {% endfor %}
+    </div>
+    
+</body>
+</html>
