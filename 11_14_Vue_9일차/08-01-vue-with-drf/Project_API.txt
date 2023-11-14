@@ -1,0 +1,3 @@
+[ 환율 ]
+r2L3MOeBhzmCs0W9Ismk0LcWtpageXlH
+https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=r2L3MOeBhzmCs0W9Ismk0LcWtpageXlH&searchdate=20180102&data=AP01
