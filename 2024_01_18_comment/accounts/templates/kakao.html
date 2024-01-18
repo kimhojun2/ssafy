@@ -1,0 +1,18 @@
+<!-- myapp/templates/myapp/home.html -->
+
+{% load socialaccount %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyApp Home</title>
+</head>
+<body>
+    <h1>Welcome to MyApp Home Page!</h1>
+    {% with kakao_login_url=provider_login_url 'kakao' %}
+    <button type="button" onclick="location.href = '{{ kakao_login_url }}'">
+        <img class="kakao" src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" alt="">
+    </button>
+    {% endwith %}
+</body>
+</html>
